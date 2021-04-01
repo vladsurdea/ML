@@ -1,5 +1,3 @@
-# NLP
+# Electricity Demand Forecasting (EDF) using an LSTM-based RNN
 
-Welcome to the NLP Project on Hate Speech Detection.
-
-Feedback from first report submitted the 1st of March 2021:
+The following project predicts the hourly electricity demand in a given market by using a LSTM-based RNN architecture. The prediction is based on historical data of the hourly electricity load available between 2006 and 2019, in the absence of covariates describing weather events during this period. The results of the model are compared with the baseline ARIMA model, traditionally used in the transport and distribution industry to forecast demand in the day-ahead and spot markets. The ARIMA model is a standard, econometric model that does not employ ML algorithms. A combination of human and automatic evaluations is performed. The preliminary results show that the LSTM-based RNN outperforms the traditional model in multiple areas, especially when it comes to predict sudden spikes in electricity load consumption.

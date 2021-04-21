@@ -93,7 +93,7 @@ where $\Phi$ indicates the auto-regressive parameter of order p, p indicates the
 
 In standard RNN architectures, the neural network is designed as a chain of identical modules formed as a series of hidden networks, usually in the form of a single sigmoid layer (see Figure 1). Given that the architecture of an RNN assigns one layer for each moment in time, it is theoretically suitable for time series analysis. However, training  sequences with very long time steps is challenging due to the RNN’s inherent limitations,such as  vanishing gradients.
 
-![Figure 1. The standard architecture of RNNs](/Users/vladsurdea/Desktop/Fig1.png)
+![Figure 1. The standard architecture of RNNs](/Users/vladsurdea/Documents/GitHub/ML/Blogpost/Fig1.png)
 
 In contrast to this standard architecture, the hidden layers of a LSTM-based RNN have a more complex structure capable of learning long-term dependencies. The LSTM-extension introduces the concepts of gate and memory cell in each hidden layer in the network. As a consequence, a memory block in the LSTM-based RNN is composed of four structural parts: an input gate , a forget gate , an output gate , and the self-connected memory cells:
 \begin{itemize}
@@ -106,7 +106,7 @@ In addition to this tripartite structure, LSTM applies multiplicative gates to m
 
 Briefly stated, based on the input time-series vector \textbf{x}=$\{x_1,x_2,x_3,...x_t\}$, the LSTM-based RNN will predict sequences: the hidden state sequence  \textbf{y}=$\{y_1,y_2,y_3,...y_t\}$ and the output sequence \textbf{h}=$\{h_1,h_2,h_3,...h_t\}$.The process is iterative, and is realised by sequentially updating the states of the memory cells.This process if illustrated in Figure 2, and subsequently described through a series of equations:
 
-![Figure 2.  The long short-term memory (LSTM)-based RNN archi-tecture](/Users/vladsurdea/Desktop/Fig2.png)
+![Figure 2.  The long short-term memory (LSTM)-based RNN archi-tecture](/Users/vladsurdea/Documents/GitHub/ML/Blogpost/Fig2.png)
 
 The first step in the process is for the forget gate to be applied in order to decide what part of the information to discard from the cell state.The activation of the forget gate is computed via the use of a sigmoid function:
 
@@ -164,33 +164,33 @@ Figure 3 displays the evolution of electricity demand in the period 2006-2019 in
 The exception is centered around the years 2008 and 2012, which were marked by a financial, respectively political crisis in the country. Since 2013, the average load has been constantly increasing.
 
 
-![Figure 3.  Per year electricity demand in Romania over the period 2006-2019](/Users/vladsurdea/Desktop/Fig3.png)
+![Figure 3.  Per year electricity demand in Romania over the period 2006-2019](/Users/vladsurdea/Documents/GitHub/ML/Blogpost/Fig3.png)
    
 
 Figure 4 looks at the distribution of electricity demand across the 12 months. As expected, demand for electricity was significantly higher during winter months and lower during summer, the end of spring and the beginning of autumn.
 
-![Figure 4.  Per month electricity demand in Romania over the period 2006-2019](/Users/vladsurdea/Desktop/Fig4.png)
+![Figure 4.  Per month electricity demand in Romania over the period 2006-2019](/Users/vladsurdea/Documents/GitHub/ML/Blogpost/Fig4.png)
 
 
 Figure 5 looks at the distribution of electricity demand across the 52 weeks, which captures the same seasonality as the monthly distribution, only more granular.
 
-![Figure 5.  Per week electricity demand in Romania over the period 2006-2019](/Users/vladsurdea/Desktop/Fig5.png)
+![Figure 5.  Per week electricity demand in Romania over the period 2006-2019](/Users/vladsurdea/Documents/GitHub/ML/Blogpost/Fig5.png)
 
 Figure 6 looks at the distribution of electricity demand across the days of the month. Surprisingly, it seems there is also a degree of daily seasonality, as people tend to consume less electricity at the start and end of the month.
 
-![Figure 6.  Per day electricity demand in Romania over the period 2006-2019](/Users/vladsurdea/Desktop/Fig6.png)
+![Figure 6.  Per day electricity demand in Romania over the period 2006-2019](/Users/vladsurdea/Documents/GitHub/ML/Blogpost/Fig6.png)
 
 Figure 7 captures the weekday seasonality. Again, as expected, people tend to consume more electricity during weekdays, and significantly less during weekends.
 
-![Figure 7.  Per weekday electricity demand in Romania over the period 2006-2019](/Users/vladsurdea/Desktop/Fig7.png)
+![Figure 7.  Per weekday electricity demand in Romania over the period 2006-2019](/Users/vladsurdea/Documents/GitHub/ML/Blogpost/Fig7.png)
 
 Figure 8 illustrates the hourly seasonality. In this sense, people clearly use more electricity during day-time. Additionally, the decrease is very steep between the afternoon and the nighttime. 
 
-![Figure 8.  Per hour electricity demand in Romania over the period 2006-2019](/Users/vladsurdea/Desktop/Fig8.png)
+![Figure 8.  Per hour electricity demand in Romania over the period 2006-2019](/Users/vladsurdea/Documents/GitHub/ML/Blogpost/Fig8.png)
 
 Lastly, when looking at Figure 9, one can observe that electricity consumption follow an almost-normal distribution, centered around the mean 6080 MWh and a median of 6050 MWh. This information already provides us with the simplest baseline model, one which would predict for each hour in the testing subset the average 6080 MWh of the entire dataset.
 
-![Figure 9.  Distribution of electricity consumption 2006-2019](/Users/vladsurdea/Desktop/Fig9.png)
+![Figure 9.  Distribution of electricity consumption 2006-2019](/Users/vladsurdea/Documents/GitHub/ML/Blogpost/Fig9.png)
 
  
 **Software**: We made use of both Jupyter Lab and Google Colab for writing the code. In terms of managing the project, we benefited from GitHub. Overleaf was the choice for writing the project in \LaTeX.
@@ -218,8 +218,9 @@ Furthermore, we experimented with different structures for splitting test and tr
 
 **Results**: 
 
-![](/Users/vladsurdea/Desktop/Table.png)
-
+![](/Users/vladsurdea/Documents/GitHub/ML/Blogpost/Table.png)
+ 
+ 
 The table above describes the results of both our baseline ARIMA model, and the LSTM-based RNN model. In this sense, at the first glance, we observe that the LSTM outperforms the traditional model in all categories, so irrespective of the metric used for computing accuracy.
 
 
@@ -238,20 +239,21 @@ Thirdly, the human evaluators from Romania have revealed one important fact abou
 
 Figure 10 displays the results of the ARIMA model. While the model predicts the direction in which the electricity load seems to go, it is inaccurate in actually determining the load at a given moment.  Given that ARIMA is a traditional econometric model, it doesn't use the train-test split. As such, one can see the predicted values alongside the actual values of the electricity load across the entire dataset. Nevertheless, the results do not improve if we only look at one period in time, as the main fault of the model is the incapacity of anticipating spikes in demand. 
 
-![Figure 10.  Results of ARIMA](/Users/vladsurdea/Desktop/Fig10.png)
+![Figure 10.  Results of ARIMA](/Users/vladsurdea/Documents/GitHub/ML/Blogpost/Fig10.png)
 
 Figure 11 displays the results of the LSTM-based RNN model. This plot offers the results of the test aggregate on a daily basis. The improvements from the previous models are visually perceivable. One very important point, however, is that results tend to become better and better as we go towards the end of the dataset. In this sense, one can conclude that the best EDF approach with LSTM-based RNN would be to predict a small number of electricity loads based on a very large pre-existing historical time-series. This is ideal, as usually the most important predictions are for the upcoming day, and at most for the next 7 days. Our prediction for a couple of months is beyond the needs of the industry. 
 
-![Figure 10.  Results of LSTM](/Users/vladsurdea/Desktop/Fig11.png)
+![Figure 10.  Results of LSTM](/Users/vladsurdea/Documents/GitHub/ML/Blogpost/Fig11.png)
 
 Figure 12 offers a sample of the results provided by the LSTM-based RNN. There is only one significant discrepancy that can be observed: the one between 5517 and 6663. This particular divergence is associated with 03-06-2019, a typical weekday of summer in which the electricity load was extremely low. This exception proves that in the absence of weather data, even the best performing deep-learning models cannot predict values that are entirely dependent on weather events. 
 
-![Figure 12. Sample of results](/Users/vladsurdea/Desktop/Fig12.png)
+![Figure 12. Sample of results](/Users/vladsurdea/Documents/GitHub/ML/Blogpost/Fig12.png)
 
 
 Lastly, figure 13 displays the evolution of the absolute error of the LSTM-based RNN model, defined as the difference between the actual value and the predicted value. One noticeable pattern is that in cases in which the error was very large, it was almost always negative, meaning that the LSTM-based model predicted more consumption. Combined with the negative MBE, this means that for such a model to be useful in industry, grid operators would need to adjust upwardly on average, but also expect that at certain moments the estimations will be massively above the true values in MWh.
 
-![Figure 13. Evolution of erros for the LSTM](/Users/vladsurdea/Desktop/Fig13.png)
+![Figure 13. Evolution of erros for the LSTM](/Users/vladsurdea/Documents/GitHub/ML/Blogpost/Fig13.png)
+
 
 ## Conclusion(s)
 

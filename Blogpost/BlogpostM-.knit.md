@@ -252,7 +252,7 @@ Figure 12 offers a sample of the results provided by the LSTM-based RNN. There i
 
 Lastly, figure 13 displays the evolution of the absolute error of the LSTM-based RNN model, defined as the difference between the actual value and the predicted value. One noticeable pattern is that in cases in which the error was very large, it was almost always negative, meaning that the LSTM-based model predicted more consumption. Combined with the negative MBE, this means that for such a model to be useful in industry, grid operators would need to adjust upwardly on average, but also expect that at certain moments the estimations will be massively above the true values in MWh.
 
-![Figure 13. Evolution of erros for the LSTM](/Users/vladsurdea/Documents/GitHub/ML/Blogpost/Fig13.png)
+![Figure 13. Evolution of erros for the LSTM](/Fig13.png)
 
 
 ## Conclusion(s)
